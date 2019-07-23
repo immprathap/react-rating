@@ -41,7 +41,7 @@ class RatingAPILayer extends React.PureComponent {
   }
 
   translateDisplayValueToValue(displayValue) {
-    const translatedValue = displayValue * this.props.step + this.props.start;
+    const translatedValue = this.props.values[displayValue-1];
     // minimum value cannot be equal to start, since it's exclusive
     return translatedValue === this.props.start
       ? translatedValue + 1 / this.props.fractions
@@ -65,18 +65,21 @@ class RatingAPILayer extends React.PureComponent {
       quiet,
       fractions,
       direction,
-      start,
-      stop,
+      /*start,
+      stop,*/
+      values,
       id,
       className,
       style,
       tabIndex
     } = this.props;
 
-    function calculateTotalSymbols(start, stop, step) {
+    /*function calculateTotalSymbols(start, stop, step) {
       return Math.floor((stop - start) / step);
+    }*/
+    function calculateTotalSymbols(values) {
+      return values.length;
     }
-
     return (
       <Rating
         id={id}
@@ -84,7 +87,7 @@ class RatingAPILayer extends React.PureComponent {
         className={className}
         tabIndex={tabIndex}
         aria-label={this.props['aria-label']}
-        totalSymbols={calculateTotalSymbols(start, stop, step)}
+        totalSymbols={/*calculateTotalSymbols(start, stop, step)*/calculateTotalSymbols(values)}
         value={this.tranlateValueToDisplayValue(this.state.value)}
         placeholderValue={this.tranlateValueToDisplayValue(this.props.placeholderRating)}
         readonly={readonly}
@@ -104,6 +107,7 @@ class RatingAPILayer extends React.PureComponent {
 RatingAPILayer.defaultProps = {
   start: 0,
   stop: 5,
+  values: [],
   step: 1,
   readonly: false,
   quiet: false,
@@ -121,6 +125,7 @@ RatingAPILayer.defaultProps = {
 RatingAPILayer.propTypes = typeof __DEV__ !== 'undefined' && __DEV__ && {
   start: PropTypes.number,
   stop: PropTypes.number,
+  values: PropTypes.array,
   step: PropTypes.number,
   initialRating: PropTypes.number,
   placeholderRating: PropTypes.number,
