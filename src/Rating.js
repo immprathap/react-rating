@@ -128,7 +128,7 @@ class Rating extends React.PureComponent {
     }
 
     // The amount of full symbols
-    const fullSymbols = Math.floor(renderedValue);
+    //const fullSymbols = Math.floor(renderedValue);
 
     for (let i = 0; i < totalSymbols; i++) {
       let percent;
@@ -140,9 +140,9 @@ class Rating extends React.PureComponent {
       } else {
         percent = 0;
       }*/
-      console.log('renderedValue',renderedValue,'fullSymbols',fullSymbols,'i - fullSymbols === 0',i, fullSymbols);
-      if (i - fullSymbols === 0) {
-        percent = (renderedValue - i) * 100;
+      
+      if (i === renderedValue) {
+        percent = 100;
       } else {
         percent = 0;
       }
