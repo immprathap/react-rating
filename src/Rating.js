@@ -140,6 +140,7 @@ class Rating extends React.PureComponent {
       } else {
         percent = 0;
       }*/
+      console.log('renderedValue',renderedValue,'fullSymbols',fullSymbols,'i - fullSymbols === 0',i, fullSymbols);
       if (i - fullSymbols === 0) {
         percent = (renderedValue - i) * 100;
       } else {
