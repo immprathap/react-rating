@@ -141,7 +141,7 @@ class Rating extends React.PureComponent {
         percent = 0;
       }*/
       
-      if (i === renderedValue) {
+      if (i === renderedValue-1) {
         percent = 100;
       } else {
         percent = 0;
