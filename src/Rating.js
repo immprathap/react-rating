@@ -166,7 +166,7 @@ class Rating extends React.PureComponent {
             onTouchEnd: this.symbolClick
           })}
         />
-        <label style={{color:"rgba(50,50,50,0.5)", left:"50%", bottom:"-40px", margin:"-5px 0 0 -40px", position:"absolute"}}>{labels[i]}</label>
+        <div style={{color:"rgba(50,50,50,0.7)", fontSize:"10px",fontWeight:"600", left:"50%", bottom:"-40px", margin:"-5px 0 0 -40px", position:"absolute"}}>{labels[i]}</div>
         </div>
       );
     }
