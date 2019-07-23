@@ -21,8 +21,8 @@ class RatingAPILayer extends React.PureComponent {
   }
 
   handleClick(value, e) {
-    console.log('handleClick',value);
     const newValue = this.translateDisplayValueToValue(value);
+    console.log('handleClick','value',value,'newValue', newValue);
     this.props.onClick(newValue);
     // Avoid calling setState if not necessary. Micro optimisation.
     if (this.state.value !== newValue) {
