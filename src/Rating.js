@@ -99,6 +99,7 @@ class Rating extends React.PureComponent {
       quiet,
       totalSymbols,
       value,
+      labels,
       placeholderValue,
       direction,
       emptySymbol,
@@ -147,7 +148,7 @@ class Rating extends React.PureComponent {
         percent = 0;
       }
       symbolNodes.push(
-        <div>
+        <div style={{display:"inline-block", height:"80px"}}>
         <Symbol
           key={i}
           index={i}
@@ -165,7 +166,7 @@ class Rating extends React.PureComponent {
             onTouchEnd: this.symbolClick
           })}
         />
-        <label>Sample</label>
+        <label style={{left:"50%", top:"50%", margin:"-5px 0 0 -20px"}}>{labels[i]}</label>
         </div>
       );
     }

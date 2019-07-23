@@ -68,6 +68,7 @@ class RatingAPILayer extends React.PureComponent {
       /*start,
       stop,*/
       values,
+      labels,
       id,
       className,
       style,
@@ -88,6 +89,7 @@ class RatingAPILayer extends React.PureComponent {
         tabIndex={tabIndex}
         aria-label={this.props['aria-label']}
         totalSymbols={/*calculateTotalSymbols(start, stop, step)*/calculateTotalSymbols(values)}
+        labels={labels}
         value={this.tranlateValueToDisplayValue(this.state.value)}
         placeholderValue={this.tranlateValueToDisplayValue(this.props.placeholderRating)}
         readonly={readonly}
@@ -126,6 +128,7 @@ RatingAPILayer.propTypes = typeof __DEV__ !== 'undefined' && __DEV__ && {
   start: PropTypes.number,
   stop: PropTypes.number,
   values: PropTypes.array,
+  labels: PropTypes.array,
   step: PropTypes.number,
   initialRating: PropTypes.number,
   placeholderRating: PropTypes.number,
