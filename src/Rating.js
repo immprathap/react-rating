@@ -147,6 +147,7 @@ class Rating extends React.PureComponent {
         percent = 0;
       }
       symbolNodes.push(
+        <div>
         <Symbol
           key={i}
           index={i}
@@ -164,6 +165,8 @@ class Rating extends React.PureComponent {
             onTouchEnd: this.symbolClick
           })}
         />
+        <label>Sample</label>
+        </div>
       );
     }
 
